@@ -1,0 +1,13 @@
+version: '3.8'
+
+services:
+  db:
+    image: postgres:13.1-alpine
+    restart: always 
+    env_file:
+      - dev.env # configure postgres
+    volumes:
+      - database-data:/var/lib/postgresql/data/
+
+volumes:
+  database-data: # named volumes can be managed easier using docker-compose
