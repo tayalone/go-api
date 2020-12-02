@@ -1,0 +1,9 @@
+FROM golang:1.14.12-alpine3.12
+
+WORKDIR /go/src/app
+COPY . .
+
+RUN go get -d -v ./...
+RUN go install -v ./...
+
+RUN go get github.com/cosmtrek/air
